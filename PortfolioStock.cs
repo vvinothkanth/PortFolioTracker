@@ -35,11 +35,22 @@ namespace PracticeProgram
                 string[] fileData = new string[]{};
                 try
                 {
-                     fileData = System.IO.File.ReadAllLines(fileLocation);
+                    if (fileLocation == string.Empty)
+                    {
+                        throw new System.IO.FileNotFoundException("File Not Found Exception");
+                    }
+                    else if (System.IO.File.ReadAllLines(fileLocation))
+                    {
+                        throw new System.IO.FileNotFoundException("File Not Found Exception"); 
+                    }
+                    else
+                    {
+                        fileData = System.IO.File.ReadAllLines(fileLocation);
+                    }
                 }
                 catch (System.IO.FileNotFoundException exception)
                 {
-                    Console.WriteLine(exception);
+                    throw new System.IO.FileNotFoundException(exception);
                 }
 
                 return fileData;
@@ -68,6 +79,7 @@ namespace PracticeProgram
                 catch (ArgumentException exception)
                 {
                     Console.WriteLine(exception);
+                    throw new ArgumentException("Argument Exception");
                 }
 
                 return keySymbolValue;
@@ -92,6 +104,7 @@ namespace PracticeProgram
                 catch (IndexOutOfRangeException exception)
                 {
                     Console.WriteLine(exception);
+                    throw new IndexOutOfRangeException(exception);
                 }
 
                 return singleLine;
