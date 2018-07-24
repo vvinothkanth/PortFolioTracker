@@ -5,7 +5,32 @@ namespace PortFolioTestCaseOne
 {
     [TestClass]
     public class UnitTest1
-    {     
+    {
+
+        /// <summary>
+        /// Check The file is exist or not or empty
+        /// </summary>
+        [TestMethod()]
+        public void AutoTellTest()
+        {
+
+            try
+            {
+                PortfolioStock.getStockFile(@"C:\Users\vinothkanth\Desktop\PortFolioData.txt");
+            }
+            catch (System.IO.FileNotFoundException e)
+            {
+                StringAssert.Contains(e.Message, "File Not Found Exception");
+                return;
+            }
+            catch (Exception e)
+            {
+                StringAssert.Contains(e.Message, "File Not Found Exception");
+                return;
+            }
+            Assert.Fail("No Exception was through");
+        }
+
         /// <summary>
         /// Check the key value of GOOG is equal to 500
         /// </summary>
