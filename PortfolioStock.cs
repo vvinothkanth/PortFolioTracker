@@ -1,14 +1,5 @@
 ﻿//***********************************
-//  
-//  The PortfolioStock class is used to calculate the portfolio stack value for given text file
-//  
-//
-//
 // Auther : Vinothkanth V
-// Program Date   : 17 / 7 / 2018
-// Modified  Date : 19 / 7 / 2018
-//
-//
 //***********************************
 
 namespace PracticeProgram
